@@ -1,0 +1,137 @@
+<!Doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="Coded By Caleb D'Souza, Pictures Created By Sherry Wang">
+        <meta name="viewport" content="user-scalable = yes, width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" href="Images/bear.png">
+        
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Raleway');
+            @import url('https://fonts.googleapis.com/css?family=Orbitron');
+            body, html {
+                background-attachment: fixed;
+                background: #0F2F5B;
+                margin: 0;
+                font-size: 13px;
+                line-height:40px;
+                font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+                color: white;
+            }
+            #wrapper { 
+                -webkit-animation: fadein 5s;  
+                -moz-animation: fadein 5s;
+                -ms-animation: fadein 5s;
+                -o-animation: fadein 5s;
+                animation: fadein 5s;
+                -webkit-animation-delay: 2s; 
+                -moz-animation-delay: 2s;
+                -o-animation-delay: 2s;
+                animation-delay: 2s;
+                animation-fill-mode:forwards;
+                margin: auto;
+                position: relative;
+                padding: 0;
+                opacity: 0;
+                z-index: 999;
+            }
+            @keyframes fadein {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+            @-moz-keyframes fadein {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+            @-webkit-keyframes fadein {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+            @-ms-keyframes fadein {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+            @-o-keyframes fadein {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+
+            #countdown {
+                position: relative;
+                margin: 35vh auto;
+                text-align: center;
+            }
+            hr{
+                width: 40%;
+            }
+            #countdown h1 { 
+                font: 40px 'Raleway', sans-serif !important;
+            }
+            #time {
+                font: 30px 'Orbitron', sans-serif
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id = "wrapper">
+            <div id="countdown">
+                <h1>COMING SOON</h1>
+                <hr>
+                <p id="time"p>
+            </div>
+        </div>
+        
+        <script>
+            // Set the date we're counting down to
+            var countDownDate = new Date("Sep 5, 2017 23:59:59").getTime();
+
+            // Update the count down every 1 second
+            var countdownfunction = setInterval(function() {
+
+                // Get todays date and time
+                var now = new Date().getTime();
+
+                // Find the distance between now an the count down date
+                var distance = countDownDate - now;
+
+                // Time calculations for days, hours, minutes and seconds
+                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                // Output the result in an element with id="demo"
+                document.getElementById("time").innerHTML = days + " Days, " + hours + " hrs "
+                + minutes + " mins " + seconds + " secs ";
+
+                // If the count down is over, write some text 
+                if (distance < 0) {
+                    clearInterval(countdownfunction);
+                    document.getElementById("time").innerHTML = "It's Here! :D";
+                }
+            }, 1000);
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,182 @@
+/**
+ * @project Animated Particale Network
+ * @version 0.1
+ */
+
+// Create a places to store all the Particles for the current Canvas
+var particles = [];
+// Find the canvas Id Element
+var canvas = document.querySelector("canvas");
+// Get the height and width of the Canvas
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+// Get the context of the Canvas Element as 2D
+var ctx = canvas.getContext('2d');
+
+/**
+ * @desc Partical Object constructor that draws a Partical at the given
+ *       starting positionwith the given velocity and size
+ *
+ * @param int initialX - the initital given x coordinate of this
+ *        Partical object
+ * @param int initialY - the initial given y coordinate of this
+ *        Paritical object
+ * @param int velocityX - the given velocity in the x direction of
+ *        this Partical object
+ * @param int velocityY - the given velocity in the y direction of
+ *        this Partical object
+ * @param int size - the given size of this Partical object
+ * @return none
+ */
+function Particle(initialX, initialY, velocityX, velocityY, size) {
+    'use strict';
+    // Initialize particale object properties based on given perameters
+    this.currentX = initialX;
+    this.currentY = initialY;
+    this.velocity = {
+        x: velocityX,
+        y: velocityY
+    };
+    
+    /*
+     * Moves this partical based on the given and current position and
+     * given velocity
+     * @param Object canvas - The given canvas Id Element to be used
+     */
+    this.move = function (canvas) {
+        // Check if this Partical's current position is outside the width
+        // boundaries of the given canvas
+        if (this.currentX > canvas.width + 50 || this.currentX < -50) {
+            // Change the x velocity direction of this Partical 
+            this.velocity.x = -this.velocity.x;
+        }
+        
+        // Check if this Partical's current position is outside the height
+        // boundaries of the given canvas
+        if (this.currentY > canvas.height + 50 || this.currentY < -50) {
+            // Change the y velocity direciton of this Partical
+            this.velocity.y = -this.velocity.y;
+        }
+        
+        // Change the cuurent position of this Partical based on the given velocity
+        this.currentX += this.velocity.x;
+        this.currentY += this.velocity.y;
+    };
+    
+    /*
+     * Draws this Partical at the initial position of this Partical
+     * @param Object ctx - the context of the Canvas Element in 2D
+     */
+    this.setup = function (ctx) {
+        ctx.beginPath();
+        ctx.globalAlpha = 0.5;
+        ctx.fillStyle = '#448fda';
+        ctx.arc(this.currentX, this.currentY, size, 0, 2 * Math.PI, false);
+        ctx.fill();
+    };
+}
+
+/**
+ * @desc Given the height and width of a canvas element, factor of variation 
+ *       for the number of Particals created, and the factor of the variation of
+ *       the size of Particales.
+ *
+ * @param array of Particles - a place to store the created Particles 
+ * @param int height - the height of the given canvas element used
+ * @param int width - the width of the given canvas element used
+ * @param int createFactor - the factor of variation for the random number of
+ *        Particles to be created
+ * @param velocityFactor - the factor of variation for the random velocity
+ *        between Particles
+ * @param int sizeFactor - the factor of variation for the random sizes of
+ *        Particals that are created
+ * @return None
+ */
+var createParticales = function (particles, height, width, createFactor,
+                                  velocityFactor, sizeFactor) {
+    'use strict';
+    // Create a set number of Particales based on the given area of the canvas used
+    // and the given createFactor
+    for (var index = 0; index < ((width * height) / createFactor); index++) {
+        // Create new Particle object
+        var newParticle = new Particle(Math.random() * width,
+                                    Math.random() * height,
+                                    Math.random() - velocityFactor,
+                                    Math.random() - velocityFactor,
+                                    Math.random() * sizeFactor)
+        // Add the created Partical to the particles array 
+        particles.push(newParticle);
+    }
+};
+
+/**
+ * @desc Draw the Particle Network Animation with changing connections
+ *       when Particles are in range of each other.
+ *
+ * @param None
+ * @return None
+ */
+var draw = function () {
+    // Fixed range of connection between Particles 
+    const RANGE = 100;
+    // Refresh the background dimensions when the canvas is rezied
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    
+    // Draw the background for the canvas
+    ctx.globalAlpha = 1;
+    ctx.fillStyle = '#0F2F5B';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    // DRAW THE NETWORK OF PARTICLES
+    // Loop through each Particle created to be drawn
+    for (var centerIndex = 0; centerIndex < particles.length; centerIndex++) {
+        // Get the center Particle from the list of Particles 
+        var centerParticle = particles[centerIndex];
+        // Draw the center Particle at the set position
+        centerParticle.setup(ctx, canvas);
+        ctx.beginPath();
+        // Loop through the rest of the Particles created
+        for (var surroundingIndex = particles.length - 1;
+             surroundingIndex > centerIndex; surroundingIndex--) {
+            var surroundingParticle = particles[surroundingIndex];
+            // Get the distance between the current center Particle and
+            // the current surronding Particle 
+            var distanceX = centerParticle.currentX - surroundingParticle.currentX
+            var distanceY = centerParticle.currentY - surroundingParticle.currentY
+            var distanceBetween = Math.hypot(distanceX, distanceY);
+            
+            // Check if the distance between two particles is in the allowed range
+            if (distanceBetween < RANGE) {
+                // Draw a line to connect two particles that are within range
+                ctx.strokeStyle = "#5C9EC4";
+                // Set the strength of the connection between the two particles
+                ctx.globalAlpha = 1 - (distanceBetween / RANGE);
+                ctx.lineWidth = 1;
+                // Move the path/line of connection as the two Particles moves
+                ctx.moveTo(centerParticle.currentX, centerParticle.currentY);
+                ctx.lineTo(surroundingParticle.currentX, surroundingParticle.currentY);
+            }
+        }
+        // Draw the the defined path of the current center and surrounding Particle
+        ctx.stroke();
+    }
+    
+    // Move the position for each created Particle, based on their set velocity
+    for (var index = 0; index < particles.length; index++) {
+      particles[index].move(canvas);
+    }
+    
+    requestAnimationFrame(draw);
+};
+
+// Start
+createParticales(particles, canvas.height, canvas.width, 5100, 0.5, 4);
+draw();
+
+// FADE OUT TRANSITION
+function fadeout() {
+    document.getElementById('body').className ='transitionOut';
+    
+};
