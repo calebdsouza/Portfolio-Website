@@ -1,0 +1,961 @@
+@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300');
+body {
+    background-attachment: fixed;
+    background: #0F2F5B;
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+	overflow-x: hidden;
+    font-size: 13px;
+    line-height: 24px;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #666;
+}
+::-webkit-scrollbar {
+    border-radius: 20px;
+    width: 7px;
+}
+::-webkit-scrollbar-track-piece {
+    left: 80px;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 183, 255, 0.8);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+::-webkit-resizer {
+    background-color: blue;
+}
+#wrapper { 
+ /*height: 100vh;
+    width: 100vw;*/
+    -webkit-animation: fadein 5s;  
+    -moz-animation: fadein 5s;
+    -ms-animation: fadein 5s;
+    -o-animation: fadein 5s;
+    animation: fadein 5s;
+    -webkit-animation-delay: 2s; 
+    -moz-animation-delay: 2s;
+    -o-animation-delay: 2s;
+    animation-delay: 2s;
+    animation-fill-mode:forwards;
+    background-attachment: fixed;
+    background-image: url("bridge.jpg") !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    margin: 0;
+    position: absolute;
+    padding: 0;
+    opacity: 0;
+    z-index: 999;}
+
+/********** HEADER **********/
+#Header{
+    background: transparent;
+    border-bottom: none;
+    margin-top: 0;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    position: fixed;
+    width: 100vw;
+    z-index: 9900;
+	height: 15vh;
+
+}
+
+/* Attributes for navbar */
+#nav {
+    background: transparent !important;
+    width: 96.5vw;
+}
+#nav ul {
+    
+    display: block;
+    overflow: hidden;
+    width 100vw;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+#nav li {
+    
+    margin: 0;
+    padding: 0;
+    float: right;
+    list-style-type: none;
+}
+#nav li a {
+    
+    background-size: 100% 202%;
+    box-sizing: content-box;
+    /*color: #333333;*/
+    color: aliceblue;
+    -webkit-text-stroke: 0.2px #49BCFF;
+    text-stroke: 0.2px #49BCFF;
+    display: block;
+    font-size: 3vh;
+    /*font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 2px;
+	line-height: 6vh;
+    margin: 0;
+    padding: 4vh 1vw;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+#nav ul li a:hover {
+    color: #49BCFF;
+    
+}
+#nav ul li a.active {
+    border-bottom: 3px white solid;
+    color: rgb(0, 133, 205);
+	font: bold 1.5vw Source Sans Pro;
+}
+#mobileNav {
+    display: none;
+}
+#mobileMenuButton {
+    display: none;
+    background: url("Images/menuButtonWhite.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -webkit-transition: -webkit-transform 0.5s; /* Safari */
+    transition: transform 0.5s;
+    height: 6vh;
+    width: 6vh;
+	margin: 3vh 3vw;
+    z-index: 9999;
+}
+
+/* Mobile Nav Menu*/
+
+@media screen and (max-width: 800px) and (min-width: 0px) {
+    #nav ul li:not(:last-child) {
+        display: none !important;
+    }
+    #mobileMenuButton {
+        float: right;
+        display: block;
+    }
+    .mobileMenuButtonAnimation {
+    -ms-transform: rotate(180deg); /* IE 9 */
+    -webkit-transform: rotate(180deg); /* Safari */
+    transform: rotate(180deg); 
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    }
+    #mobileNav {
+        left: 11.5% !important;
+        margin: 9.1vh -11vw 0 0;
+        background: rgba(0,0,0, 0.8);
+        padding: 0;
+        float: right;
+        z-index: 9999;
+        top:15% !important;
+    }
+    #mobileNav ul {
+        text-align: left;
+        margin 0;
+        padding: 0 20px;
+        list-style: none;
+    }
+    #mobileNav li { 
+        display: block;
+        text-align: center;
+    }
+    #mobileNav li a {
+        display: block;
+        color: aliceblue;
+        -webkit-text-stroke: 0.2px #49BCFF;
+        text-stroke: 0.2px #49BCFF;
+        font: normal 3vmax 'Montserrat', sans-serif;
+        margin 0 -10vw 0 -10vw;
+        padding: 6px 0px;
+        text-decoration: none;
+    }
+    #mobileNav ul li a:hover {
+        color: #49BCFF;
+    }
+    #mobileNav ul li a:active {
+        color: blue;
+        margin: 0 0 0 -5vw;
+        padding: 0;
+    }
+  
+}
+
+#scrollToTopButton {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    border: 1.5px solid rgb(0, 183, 255);
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 9999; /* Make sure it does not overlap */
+    background-color: aliceblue; /* Set a background color */
+    color:rgb(0, 183, 255); /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px; /* Some padding */
+    text-decoration: none;
+    border-radius: 100%; /* Rounded corners */
+    opacity: 0.7;
+}
+
+#scrollToTopButton:hover {
+    background-color: #555; /* Add a dark-grey background on hover */
+    opacity: 1;
+}
+
+/* HOME SECTION */
+#Home{
+    background: transparent;
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+}
+#Home h1 {
+	position: relative;
+	top: 47%;
+	display: table;
+	z-index: 2;
+	color: #fff;
+	font : normal 300 7vmax 'Josefin Sans', sans-serif;
+	text-align: center;
+	white-space: nowrap;
+    margin: 0 auto;
+    padding: 0;
+}
+#DownButton {
+    top: 20vh;
+    opacity: 0.6;
+}
+#DownButton:hover {
+	opacity: 1;
+}
+#DownButton span {
+	position: absolute;
+	top: 86vh;
+	left: 47vw;
+	width: 5vmax; /* Size (width) of the inner coloured circle within the fade circle*/
+	height: 5vmax; /* Size (height) of the inner coloured circle within the fade circle*/
+	margin: 0;
+	border: 1.5px solid #49BCFF;
+	border-radius: 100%;
+	box-sizing: border-box;
+}
+#DownButton span::after {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	content: '';
+	width: 2vmax; /* Size for the left part of the arrow within the circle */
+	height: 2vmax; /* Size for the right part of the arrow within the circle */
+	margin: -1.5vmax 0 0 -1vmax; /* Position of the arrow within the inner circle */
+	border-left: 1.7px solid #fff;
+	border-bottom: 1.7px solid #fff;
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	box-sizing: border-box;
+}
+#DownButton span::before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	content: '';
+	width: 4.7vmax; /* Size (width) of the inner circle within the fade circle*/
+	height: 4.7vmax; /* Size (height) of the inner circle within the fade circle*/
+	box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.9);
+	border-radius: 100%;
+	opacity: 1;
+    animation: cirleFade 2s infinite;
+	-webkit-animation: cirleFade 2s infinite;
+    
+	box-sizing: border-box;
+}
+@-webkit-keyframes cirleFade {
+	0% {
+		opacity: 1;
+	}
+	30% {
+		opacity: 1;
+	}
+	60% {
+		box-shadow: 0 0 0 5vmax rgba(255, 255, 255, 0.25);
+		opacity: 0;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+@keyframes cirleFade {
+	0% {
+		opacity: 1;
+	}
+	30% {
+		opacity: 1;
+	}
+	60% {
+		box-shadow: 0 0 0 5vmax rgba(255,255,255, 0.25);
+		opacity: 0;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+@-moz-keyframes cirleFade {
+    0% {
+		opacity: 0;
+	}
+	30% {
+		opacity: 1;
+	}
+	60% {
+		box-shadow: 0 0 0 5vmax rgba(255,255,255,.1);
+		opacity: 0;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+@-ms-keyframes cirleFade {
+    0% {
+		opacity: 0;
+	}
+	30% {
+		opacity: 1;
+	}
+	60% {
+		box-shadow: 0 0 0 5vmax rgba(255,255,255,.1);
+		opacity: 0;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+@-o-keyframes cirleFade {
+    0% {
+		opacity: 0;
+	}
+	30% {
+		opacity: 1;
+	}
+	60% {
+		box-shadow: 0 0 0 5vmax rgba(255,255,255,.1);
+		opacity: 0;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+/*@keyframes downArrown {
+    0% {
+        transform: rotate(-45deg) translate(0, 0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(-45deg) translate(-20px, 20px);
+		opacity: 0;
+    }
+}
+@-webkit-keyframes downArrown {
+	0% {
+		-webkit-transform: rotate(-45deg) translate(0, 0);
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		-webkit-transform: rotate(-45deg) translate(-20px, 20px);
+		opacity: 0;
+	}
+}
+@-moz-keyframes downArrown {
+    0% {
+		-webkit-transform: rotate(-45deg) translate(0, 0);
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		-webkit-transform: rotate(-45deg) translate(-20px, 20px);
+		opacity: 0;
+	}
+}
+
+@-ms-keyframes downArrown {
+    0% {
+		-webkit-transform: rotate(-45deg) translate(0, 0);
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		-webkit-transform: rotate(-45deg) translate(-20px, 20px);
+		opacity: 0;
+	}
+}
+@-o-keyframes downArrown {
+    0% {
+		-webkit-transform: rotate(-45deg) translate(0, 0);
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		-webkit-transform: rotate(-45deg) translate(-20px, 20px);
+		opacity: 0;
+	}
+} */
+
+/********** ABOUT ME SECTION **********/
+#AboutMe{
+    padding-top: 12vh;
+    display: block; 
+    position: relative;
+    height:100%;
+    color : white;
+    z-index: -1;
+    background: transparent;
+    z-index: 999;
+}
+#aboutContent { 
+    margin: auto;
+
+}
+.backgroundBlurEffect {
+    height:100vh;
+    width: 100vw;
+    position: fixed;
+    background:url("bridge.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    opacity: 0;
+    -webkit-filter: blur(20px) brightness(0.8);
+    -ms-filter: blur(20px) brightness(0.8);
+    -o-filter: blur(20px) brightness(0.8);
+    filter: blur(20px) brightness(0.8);
+    z-index: -1;
+}
+
+.browserPhotoCardContainer, .mobilePhotoCardContainer {
+    display: block;
+    margin-right: 1.5vmin;
+    margin-bottom: 2vmin;
+}
+.browserPhotoCardContainer:hover .flipAnimation, .browserPhotoCardContainer.hover .flipAnimation {
+    transform: rotateY(180deg);
+}
+.browserPhotoCardContainer, .mobilePhotoCardContainer, .frontOfPhotoCard, .backOfPhotoCard {
+    height: 20vmax;
+    width: 20vmax;
+    border-radius: 100%;
+}
+
+
+.flipAnimation {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: 1s;
+}
+.frontOfPhotoCard, .backOfPhotoCard {
+    backface-visibility: hidden;
+    left: 0;
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+}
+.frontOfPhotoCard {
+    transform: rotateY(0deg);
+    height: 20vmax;
+    width: 20vmax;
+    z-index: 200;
+}
+.backOfPhotoCard {
+    background: linear-gradient(rgba(0, 83, 155, 0.8), rgba(0, 83, 155, 0.8)), url(Images/grid.png);
+    transform: rotateY(180deg);
+    z-index: 100;
+    color: white;
+    overflow: hidden;
+    text-align: center;
+    vertical-align: middle;
+}
+.profilePhoto {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /*background: url(executivePhotos/president.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	   -moz-background-size: cover;
+	        background-size: cover;*/    
+    margin: 0;
+    position: absolute;
+    display: block;
+    z-index: 10;
+}
+.positionInfo {
+    color: white;
+    text-align: center;
+    z-index: 1000;
+}
+#aboutScreen { 
+    border-radius: 2% 2% 1.5% 1.5%;
+    background: rgba(225, 225, 255, 0.7);
+    color: black;
+    height: 80vh; 
+    width: 64vw;
+    margin-left: 1.5vmin;
+    
+    overflow-y: auto;
+}
+#aboutCode {
+    position: relative;
+    margin: 9vh 3vw 0 3vw;
+    color: #222;
+    font: 2.3vmin 'Montserrat', sans-serif;
+}
+.aboutAnswer {
+    color: #666;
+    font: 2vmin 'Montserrat', sans-serif;
+}
+.aboutAnswer a { 
+ color: #39BCFF;
+}
+.aboutMeWindowExitButton {
+    position: relative;
+    margin-top: -12px;
+    color: transparent;
+    cursor: pointer;
+    z-index: 99999;
+}
+#aboutScreenHeader {
+    border-radius: 10px 10px 2% 2%;
+    background: rgb(84, 84, 84);
+    color: white;
+    position: absolute;
+    display: block;
+    height: 3.3vh;
+    width: 64vw;
+    margin-left: 1.5vmin;
+    z-index: 90 !important;
+}
+#aboutScreenHeader h3 {
+    position: absolute;
+    font: normal lighter 2vmin arial, sans-serif;
+    margin-top: 0.1vh !important;
+    padding: 0 30% 0 40%;
+    z-index: 90 !important;
+}
+.circle { 
+    float: left;
+    list-style: none;
+    border-radius: 100%;
+    background: blue;
+    height: 2vmin;
+    margin: 0.5%;
+    width: 2vmin;
+    z-index: 90 !important;
+}
+
+
+#clock {
+    opacity: 1; 
+    z-index: 100;
+}
+
+#map { 
+    height: 20vmax;
+    width: 20vmax;
+    margin-top: 2vmin;
+    
+}
+#infowindow {
+    color:aliceblue;
+    background-color: rgba(0,0,0,0.7);
+    
+}
+
+.gm-style-iw {
+   width: 350px !important;
+   top: 0 !important;
+   left: 0 !important;
+   border-radius: 2px 2px 0 0;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@-moz-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@-webkit-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@-ms-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@-o-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+/********** PORTFOLIO **********/
+#Portfolio { 
+    display: block;
+    position: relative;
+    padding: 12vh 0 0 0;
+    height: 100%; 
+    margin: 0;
+    width: 100vw;  
+}
+#portfolioTitle { 
+    color: aliceblue;
+    -webkit-text-stroke: 1px #49BCFF;
+    text-stroke: 1px #49BCFF;
+    font: 3em 'Montserrat', sans-serif;
+    margin: 0 auto 2vmin auto;
+    text-align: center;
+    width 40vw; 
+}
+#mobilePortfolioMenu {
+    display: none;
+}
+@media screen and (max-width: 550px) and (min-width: 0px) {
+    #portfolioMenu {
+        display: none !important;
+    }
+    #mobilePortfolioMenu {
+        background: darkgray;
+        color: azure;
+        display: block;
+        position: relative;
+        margin: 1vh 12vw;
+        width:20vw;
+    }
+}
+#portfolioMenu {
+    display: inline-block;
+    position: relative;
+    margin: 1vh;
+    padding: 0;
+}
+
+#portfolioMenu ul {
+    list-style-type: none;
+}
+#portfolioMenu ul li { 
+    color: azure;
+    float: left
+}
+
+#portfolioMenu ul li+li:before {
+    padding: 8px;
+    color: white;
+    content: "/\00a0";
+}
+#portfolioMenu ul li button {
+    background-color: azure;
+    border: 1.5px solid rgba(0, 183, 255, 0.8)  ;
+    border-radius: 10px;
+    color: black;
+    cursor:pointer;
+    padding: 2px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 11px;
+    margin: 15px;
+}
+
+#protfolioList li { 
+    display: block; 
+    float: left !important; 
+    position: relative; 
+    text-decoration: none;
+    
+}
+#portfolioList { 
+    display: block;
+    height: 85vh;
+    margin:2vh auto 0 auto;
+    position: relative;
+    width: 95vw;
+    list-style-type: none;
+    overflow-y: scroll;
+}
+.portfolioItem { 
+    display: block;
+    position: relative;
+    float: left;
+    margin: 1vh;
+    height: 30vmin;
+    width: 30vmin;
+}
+
+.portfolioItem img { 
+    display: block;
+    height: 30vmin; 
+    margin: auto;
+    position: relative;
+    width: 30vmin;
+}
+.portfolioItemInfo {
+    box-sizing: content-box;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #008CBA !important;
+    overflow: hidden !important;
+    opacity: 0.8;
+    width: 100%;
+    height: 18%;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+.portfolioItem:hover .portfolioItemInfo {
+    height: 100%;
+    overflow: scroll;
+}
+.portfolioItem h3 { 
+    color: aliceblue;
+    font: normal 2vmin Montserrat, sans-serif !important;
+    margin: 5% auto;
+    letter-spacing: 0.2vmin;
+    text-align: center;
+}
+.portfolioItem p {
+    color: aliceblue;
+    font: normal 1.3vmin Montserrat, sans-serif !important;
+    display: block;
+    position: relative;
+    letter-spacing: 0.2vmin;
+    margin: 3vmin;
+    padding: auto;
+}
+.portfolioLinks ul {
+    list-style-type: none;
+    display: inline-block;
+    position: relative;
+    float: right;
+    margin: 0 3.1vmin 0 0;
+    
+}
+.portfolioItem:hover .portfolioLinks {
+    list-style-type: none;
+    position: absolute;
+    display: table;
+    float: right;
+    margin: 0 0 2vmin 15.5vmin;
+    bottom: 0px !important;
+}
+.portfolioLinks li {
+    float:left;
+}
+.portfolioLinks a img {
+    height: 2vmin;
+    width: 2vmin;
+}
+@media screen and (max-width: 800px) and (min-width: 0px) {
+    .portfolioItemInfo h3 { 
+        font-size: 3vmin
+    }
+}
+/********** CONTACT *********/
+#Contact { 
+    display: block; 
+    position: relative; 
+    padding-top: 10vh;
+    height: 100% !important; 
+    width: 100vw;
+}
+#contactTitle { 
+    color: aliceblue;
+    -webkit-text-stroke: 1px #49BCFF;
+    text-stroke: 1px #49BCFF;
+    font: 8vmin 'Montserrat', sans-serif;
+    margin: 0 auto 3vmin auto;
+    text-align: center;
+    width 40vw; 
+    padding:0;
+}
+#socialMediaContact {
+    margin: 0 auto;
+    display: table;
+    position: relative;
+    height: 14.5vh;
+}
+#socialMediaContact ul {
+    display: inline-block;
+    position: relative;
+    float:left;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+#socialMediaContact ul li {
+    float:left;
+    padding: 0 1.5vmin;
+}
+#socialMediaContact img {
+    opacity: 0.85;
+    -webkit-filter: grayscale(90%);
+    filter: grayscale(90%);
+    height: 10vmin ;
+    width: 10vmin ;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+    transition-delay: initial;
+}
+#socialMediaContact img:hover {
+    opacity: 1;
+    -webkit-filter: grayscale(0%);
+    filter: grayscale(0%);
+}
+@media screen and (max-width: 800px) and (min-width: 0px) {
+    #socialMediaContact img {
+    height: 8.0vmin !important;
+    width: 8.0vmin !important;
+    }
+}
+#contactContent {
+    display: table;
+    position: relative;
+    width: 100vw;
+    margin: 5vh 0;
+}
+#contactContent tr {
+    display: block;
+    position: relative;
+    width: 100vw;
+    height:100%;
+    
+}
+#connectionSection{
+    width: 50vw !important ;
+    
+}
+#connectionSection p {
+    display: table;
+    position: relative;
+   margin:0 auto;
+    
+}
+#contactForm {
+    width: 50vw !important ;
+    
+}
+form ul {
+    list-style-type: none;
+}
+form ul li label {
+    color: aliceblue;
+    font: 15px 'Montserrat', sans-serif;
+}
+form ul li input{
+    background: transparent;
+    border: 2px solid white;
+    color: rgb(0, 183, 255);
+    height: 2vh;
+    width: 40vw;
+}
+form ul li input:focus {
+    border-color: rgb(0, 183, 255);
+}
+form ul li textarea {
+    background: transparent;
+    color: rgb(0, 183, 255);
+    width: 40vw;
+    
+    height: 20vmin;
+    border: 2px solid white;
+}
+form ul li textarea:focus {
+    border-color: rgb(0, 183, 255);
+}
+#submitButton {
+    height: 25px;
+    width: 60px;
+    margin: 0 auto;
+    cursor: pointer;
+}
+#submitButton:hover {
+    background-color:aliceblue; 
+    transition: 0.5s;
+}
+#contactMessage { 
+    color: aliceblue;
+}
+/********** FOOTER **********/
+footer {
+    font: 16px 'Alegreya Sans SC', sans-serif;
+    color: azure;
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    width: 206px;
+}
