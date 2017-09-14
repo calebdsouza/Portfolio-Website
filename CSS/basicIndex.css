@@ -130,7 +130,7 @@ body {
 }
 #mobileMenuButton {
     display: none;
-    background: url("Images/menuButtonWhite.png");
+    background: url("menuButtonWhite.png");
     background-position: center;
     background-repeat: no-repeat;
     -webkit-background-size: cover;
