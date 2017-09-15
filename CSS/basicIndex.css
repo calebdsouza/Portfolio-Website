@@ -554,7 +554,7 @@ body {
     font: 2vmin 'Montserrat', sans-serif;
 }
 .aboutAnswer a { 
- color: #39BCFF;
+ color: #0F2F5B;
 }
 .aboutMeWindowExitButton {
     position: relative;
@@ -920,6 +920,7 @@ form ul li input{
     background: transparent;
     border: 2px solid white;
     color: rgb(0, 183, 255);
+    font: 15px 'Montserrat', sans-serif;
     height: 2vh;
     width: 40vw;
 }
@@ -929,6 +930,7 @@ form ul li input:focus {
 form ul li textarea {
     background: transparent;
     color: rgb(0, 183, 255);
+    font: 15px 'Montserrat', sans-serif;
     width: 40vw;
     
     height: 20vmin;
