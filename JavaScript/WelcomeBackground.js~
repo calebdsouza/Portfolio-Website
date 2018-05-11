@@ -1,9 +1,8 @@
 /**
+ * @author: Caleb
  * @project Animated Particale Network
  * @version 0.1
  */
-
-var body = document.getElementsByTagName("body");
 
 // Create a places to store all the Particles for the current Canvas
 var particles = [];
@@ -39,7 +38,6 @@ function Particle(initialX, initialY, velocityX, velocityY, size) {
         x: velocityX,
         y: velocityY
     };
-    this.size = size;
     
     /*
      * Moves this partical based on the given and current position and
@@ -97,11 +95,10 @@ function Particle(initialX, initialY, velocityX, velocityY, size) {
  */
 var createParticales = function (particles, height, width, createFactor,
                                   velocityFactor, sizeFactor) {
-        'use strict';
-    var index;
+    'use strict';
     // Create a set number of Particales based on the given area of the canvas used
     // and the given createFactor
-    for (index = 0; index < ((width * height) / createFactor); index++) {
+    for (var index = 0; index < ((width * height) / createFactor); index++) {
         // Create new Particle object
         var newParticle = new Particle(Math.random() * width,
                                     Math.random() * height,
@@ -120,17 +117,16 @@ var createParticales = function (particles, height, width, createFactor,
  * @param None
  * @return None
  */
-var draw = function (timestamp) {
+var draw = function () {
     // Fixed range of connection between Particles 
-    var RANGE = 100;
-
-   // Refresh the background dimensions when the canvas is rezied
+    const RANGE = 100;
+    // Refresh the background dimensions when the canvas is rezied
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     
     // Draw the background for the canvas
-    ctx.globalAlpha = 1;
+    ctx.globalAlpha = 0;
     ctx.fillStyle = '#0F2F5B';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
@@ -173,27 +169,12 @@ var draw = function (timestamp) {
       particles[index].move(canvas);
     }
     
-   /* var start = null;
-    
-    if (!start) start = timestamp
-    var progress =  timestamp - start;
-    pr
-    if (progress < 200) {
-        requestAnimationFrame(draw);
-    }*/
-}
+    requestAnimationFrame(draw);
+};
 
 // Start
 createParticales(particles, canvas.height, canvas.width, 5100, 0.5, 4);
-//var timestamp =  Date.now();
-//draw(timestamp);
-
-setInterval(function() {
-    draw(null);
-}, 90);
-
-
-
+draw();
 
 // FADE OUT TRANSITION
 function fadeout() {

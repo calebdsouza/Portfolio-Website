@@ -1,0 +1,348 @@
+<!doctype html>
+<html> 
+    <head> 
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" href="bear.png">
+        <!--Links--->
+		<link type="text/css" rel="stylesheet" href="CSS/basicIndex.css">
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOSIJjI8t5KoyyFwd88n2yyT6m6VHMyBc&callback=initMap" async defer></script>
+      
+        <script src="JavaScript/main.js" async defer></script>
+        <script src="JavaScript/map.js"></script>
+        
+        <title>Caleb D&#8217;Souza&#8482;</title>
+    </head>
+    <body>
+        <div id = "wrapper">
+        <a id="scrollToTopButton" title="Go to top" href = "#Home">Top</a>
+        <!-- Header -->
+        <header id="Header">
+            <!-- Mobile Nav -->
+            <a id="mobileMenuButton" href="javascript:toggleDisplay('mobileNav');"> </a>
+			<nav id = "mobileNav">
+                <ul>
+                    <li>
+						<a href="#AboutMe">ABOUT ME</a>
+					</li>
+                    <li>
+						<a href="#Portfolio">PORTFOLIO</a>
+					</li>
+                    <li>
+						<a href="resume.pdf">R&#201;SUM&#201;</a>
+					</li>
+                    <li>
+						<a href="#Contact">CONTACT</a>
+					</li>
+                </ul>
+            </nav>
+            
+            <!-- Main Nav -->
+			<nav id="nav">
+				<ul>
+                    <li>
+						<a href="#Contact">CONTACT</a>
+					</li>
+                    <li>
+						<a href="resume">R&#201;SUM&#201;</a>
+					</li>
+                    <li>
+						<a href="#Portfolio">PORTFOLIO</a>
+					</li>
+                    <li>
+						<a href="#AboutMe">ABOUT ME</a>
+					</li>
+                    <li style="float:left">
+                        <a href="welcome.html">Caleb D&#8217;Souza</a>
+                    </li>
+				</ul>
+			</nav>
+		</header>
+        
+        <!-- Intro-Home-Welcome Seciton -->
+        <div id = "Home">
+            <!--Intro--->
+            <canvas id = "background_wapper"></canvas>
+        <script src= "JavaScript/WelcomeBackground.js" defer></script>
+            
+        
+            <a id = "DownButton" href = "#AboutMe"><span></span></a>
+        </div>
+            
+        <!-- About Me Section -->
+        <div id="AboutMe">
+            <div id="aboutContent">
+
+                    <div id="aboutLeft">
+                        <div id = "photoCard" class="browserPhotoCardContainer">
+                            <div class="flipAnimation">
+                                <div class="frontOfPhotoCard">
+                                    <img class="profilePhoto" src="Images/profilePicture.png" alt="Caleb">
+                                    <!--<h3 class="cardName">
+                                        Caleb D'Souza<br>
+                                        <span class="title">Software Enginner</span>
+                                    </h3>-->
+                                </div>
+                                <div class="positionInfo backOfPhotoCard">
+                                    
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div style="height:100%; width:100%;">
+                             <div id="map"></div>
+                        </div>
+
+                    </div>
+
+                    <div id="aboutRight">
+                        <div class="window shadow inContentBox">
+                            <div class="windowHeader">
+                                <div class="windowBtns">
+                                    <div class="windowRd circle"></div>
+                                    <div class="windowYl circle"></div>
+                                    <div class="windowGn circle"></div>
+                                </div>
+                                <div class="windowTitle">About Me</div>
+                            </div>
+                            <div class="windowContent">
+                               <code>
+                                    Caleb.origin<br/>
+                                    &gt; "Toronto, ON"<br/><br/>
+                                    Caleb.education<br/>
+                                    &gt; "University of Toronto"<br/><br/>
+                                    Caleb.education.specialist<br/>
+                                    &gt; "Computer Science"<br/><br/>
+                                    Caleb.expectedGraduation<br/>
+                                    &gt; "May 2020"<br/><br/>
+                                    Caleb.interests<br/>
+                                    &gt; ["Computer science", "Inovation", "Non-profits", "Travelling", "Music", "Photography", "Sports"]<br/><br/>
+                                    Caleb.resume<br/>
+                                    &gt; "<a target="_blank" href="resume.pdf">resume.pdf</a>"<br/><br/>
+                                    Caleb.blog<br/>
+                                    &gt; 
+                                        "<a target="_blank" href="https://cd7.pythonanywhere.com/">@calebdsouzablog</a>",
+                                        <br/><br/>
+                                    Caleb.email<br/>
+                                    &gt; "<a target="_blank" href="mailto:contact.caleb.dsouza@gmail.com?subject=Portfolio Website Mail: Let's Talk!">contact.caleb.dsouza@gmail.com</a>"
+                                </code>
+                            </div>
+                        </div>
+                    </div>
+
+
+            </div>
+        </div>
+            
+        <!-- Portfolio Section -->
+        <div id = "Portfolio">
+            <h3 id="portfolioTitle">PORTFOLIO</h3>
+            <select id="mobilePortfolioMenu">
+                <option value="all">All</option>
+                <option value="java">Java</option>
+                <option value="python">Python</option>
+                <option value="webDevelopment">Web Development</option>
+            </select>
+            <nav id="portfolioMenu">
+                <ul>
+                    <li>
+                        <button class ="all">All</button>
+                    </li>
+                    <li>
+                        <button class="java">Java</button>
+                    </li>
+                    <li>
+                        <button class="python">Python</button>
+                    </li>
+                    <li>
+                        <button class="webDevelopment">Web Development</button>
+                    </li>
+                </ul>
+            </nav>
+            <div id = "portfolioList">
+                <div class = "webDevProject">
+                    <div class='portfolioItem'>
+                        <img src = "Images/porfolioWebsiteImg.jpg"/>
+                        <div class= "portfolioItemInfo">
+                            <h3>Blog Website</h3>
+                            <p>
+                                Worked with the Django framwork with Pytho, CSS, HTML, and BASH to create a streamline version of a blog to share my thoughts.
+                            </p>
+                            <div class="portfolioLinks">
+                            <ul>
+                                <li>
+                                    <a href="https://github.com/calebdsouza/Blog-Website-Django"><img src="Images/github_icon.png"/></a>
+                                </li>
+                                <li>
+                                    <a href="https://cd7.pythonanywhere.com/"><img src="Images/link_icon.png"/></a>
+                                </li>
+                            </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class = "webDevProject">
+                    <div class='portfolioItem'>
+                        <img src = "Images/porfolioWebsiteImg.jpg"/>
+                        <div class= "portfolioItemInfo">
+                            <h3>Portfolio Website</h3>
+                            <p>
+                                Used HTML, CSS, JavaScript, and JQuery, with the use of Google's Map API to create a personal website to share about myself, and my past and current projects.
+                            </p>
+                            <div class="portfolioLinks">
+                            <ul>
+                                <li>
+                                    <a href="https://github.com/calebdsouza/Portfolio-Website"><img src="Images/github_icon.png"/></a>
+                                </li>
+                                <li>
+                                    <a href="http://calebdsouza.com/"><img src="Images/link_icon.png"/></a>
+                                </li>
+                            </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pythonProject"> 
+                    <div class='portfolioItem'>
+                        <img src = "Images/porfolioWebsiteImg.jpg"/>
+                        <div class= "portfolioItemInfo">
+                            <h3>Formula Game</h3>
+                            <p>Created a two player boolean value game where, to win, player one must choose values for the given formula so that it equals false. While player two mush choose values for the given formula so that it equals ture. Includes an option for the computer to chose the best next move for the current player's turn.</p>
+                            <div class="portfolioLinks">
+                            <ul>
+                                <li>
+                                    <a href="https://github.com/calebdsouza/Formula-Game"><img src="Images/github_icon.png"/></a>
+                                </li>
+                            </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pythonProject"> 
+                    <div class='portfolioItem'>
+                       <img src = "Images/porfolioWebsiteImg.jpg"/>
+                        <div class= "portfolioItemInfo">
+                            <h3>Snakes &amp; Ladders Game</h3>
+                            <p> Recreated the classic Snakes &amp; Ladders Game, with added capabilities to determine which player will win or if the game will go on forever, and the ability to reverse the start and end of ladders on the board.</p>
+                            <div class="portfolioLinks">
+                                <ul>
+                                    <li>
+                                        <a href="https://github.com/calebdsouza/Snakes-And-Ladders-Game"><img src="Images/github_icon.png"/></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pythonProject">
+                    <div class='portfolioItem'>
+                        <img src = "Images/porfolioWebsiteImg.jpg"/>
+                        <div class= "portfolioItemInfo">
+                            <h3>SQuEaL</h3>
+                            <p>Created a Simplified Query Engine and Language in Python, to retrieve data from CSV data files.</p>
+                            <div class="portfolioLinks">
+                                <ul>
+                                    <li>
+                                        <a href="https://github.com/calebdsouza/SQuEaL-in-Python"><img src="Images/github_icon.png"/></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pythonProject">
+                    <div class='portfolioItem'>
+                        <img src = "Images/porfolioWebsiteImg.jpg"/>
+                        <div class= "portfolioItemInfo">
+                            <h3>Secure Message Program</h3>
+                            <p>Used Bruce Schneier’s Solitaire Encryption algorithm to securely encrypt and decrypt data from text files in Python.</p>
+                            <div class="portfolioLinks">
+                                <ul>
+                                    <li>
+                                        <a href="https://github.com/calebdsouza/Solitaire-Message-Encryptor"><img src="github_icon.png"/></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    <!--
+                <li class="javaProject">
+                    <div class='portfolioItem'>
+                        <img src = "porfolioWebsiteImg.jpg"/>
+                        <div class= "portfolioItemInfo">
+                            <h3></h3>
+                            <P></P>
+                            <a></a>
+                        </div>
+                    </div>
+                </li>
+    -->
+            </div>
+            <script type="text/javascript" src="portfolioMenuScript.js"></script>
+        </div>
+    
+        <!-- Contact Section -->
+        <div id="Contact">
+            <h3 id="contactTitle">CONNECT WITH ME</h3>
+            <div id="contentWrapper">
+                <div id="contactForm">
+                    <!-- User Input -->
+                    <form>
+                        <label for="contact_name">Full Name</label><br>
+                        <input type="text" id="contact_name"><br>
+                        <label for="contact_email">Email</label><br>
+                        <input type="text" id="contact_email"><br><br>
+                        <label for="contact_email">Comments</label>
+                        <textarea></textarea>
+                        <input id="submitBtn" type="submit">
+                    </form>
+                </div>
+                <div id="contactMessage">
+                    <p>
+                        I love
+                    </p>
+                    <div id='socialMediaContact'>
+                        <ul>
+                            <li>
+                                <a href="mailto:contact.caleb.dsouza@gmail.com?subject=Portfolio Website Mail: Let's Talk!">
+                                    <img src="Images/mail.png"/>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/in/calebdsouza/">
+                                    <img src="Images/linkedin.png"/>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/calebdsouza">
+                                    <img src="Images/github.png"/>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.instagram.com/explorersexplore/">
+                                    <img src="Images/instagram.png"/>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+             <!-- Footer -->
+            <div id="footer"> 
+                <p>
+                Made with &nbsp;
+                <img src = "Images/heat.png" style="height:14px; width:14px;"/>
+                &nbsp; from &nbsp;
+                <img src = "Images/toronto.png" style="height:17px; width:17px;"/>
+                </p>
+            </div>
+            
+        </div>
+
+    </body>
+</html>

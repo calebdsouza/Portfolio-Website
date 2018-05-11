@@ -1,18 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300');
+
 body {
-    background-attachment: fixed;
     background: #0F2F5B;
-    background-position: center;
-    background-repeat: no-repeat;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
     margin: 0;
     padding: 0;
-	overflow-x: hidden;
     font-size: 13px;
     line-height: 24px;
     font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    overflow-x: hidden;
     color: #666;
 }
 ::-webkit-scrollbar {
@@ -30,9 +25,8 @@ body {
 ::-webkit-resizer {
     background-color: blue;
 }
+
 #wrapper { 
- /*height: 100vh;
-    width: 100vw;*/
     -webkit-animation: fadein 5s;  
     -moz-animation: fadein 5s;
     -ms-animation: fadein 5s;
@@ -44,17 +38,19 @@ body {
     animation-delay: 2s;
     animation-fill-mode:forwards;
     background-attachment: fixed;
-    background-image: url("bridge.jpg") !important;
+    background-color:  #f6f9fa;
     background-position: center;
     background-repeat: no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     margin: 0;
+    
     position: absolute;
     padding: 0;
     opacity: 0;
-    z-index: 999;}
+    z-index: 999;
+}
 
 /********** HEADER **********/
 #Header{
@@ -64,7 +60,7 @@ body {
     padding-left: 1vw;
     padding-right: 1vw;
     position: fixed;
-    width: 100vw;
+    width: 100%;
     z-index: 9900;
 	height: 15vh;
 
@@ -92,11 +88,8 @@ body {
     float: right;
     list-style-type: none;
 }
-#nav li a {
-    
-    background-size: 100% 202%;
-    box-sizing: content-box;
-    /*color: #333333;*/
+#nav li a{
+
     color: aliceblue;
     -webkit-text-stroke: 0.2px #49BCFF;
     text-stroke: 0.2px #49BCFF;
@@ -107,7 +100,7 @@ body {
     letter-spacing: 2px;
 	line-height: 6vh;
     margin: 0;
-    padding: 4vh 1vw;
+    padding: 4vh 1vw 0.5vh 1vw;
     position: relative;
     text-align: center;
     text-transform: uppercase;
@@ -128,32 +121,48 @@ body {
 #mobileNav {
     display: none;
 }
-#mobileMenuButton {
+.mobileMenuBtn {
+    background-color:transparent;
+    border: none;
+    cursor: pointer;
     display: none;
-    background: url("Images/menuButtonWhite.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -webkit-transition: -webkit-transform 0.5s; /* Safari */
-    transition: transform 0.5s;
-    height: 6vh;
-    width: 6vh;
-	margin: 3vh 3vw;
-    z-index: 9999;
+    vertical-align: middle;
 }
 
 /* Mobile Nav Menu*/
 
-@media screen and (max-width: 800px) and (min-width: 0px) {
+@media screen and (max-width: 900px) and (min-width: 0px) {
+    
     #nav ul li:not(:last-child) {
         display: none !important;
     }
-    #mobileMenuButton {
-        float: right;
-        display: block;
+    #nav ul {
+        display: inline;
     }
+    .mobileMenuBtn {
+        display: inline;
+        float: right;
+        margin: 4.2vh 4vw 0.5vh 1.5vw;
+    }
+    
+    .bar1, .bar2, .bar3 {
+        width: 35px;
+        height: 3px;
+        background-color: aliceblue;
+        margin: 7.5px 0 0 0;
+        transition: 0.4s;
+    }
+    .change .bar1 {
+        -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+        transform: rotate(-45deg) translate(-9px, 6px);
+    }
+    .change .bar2 {opacity: 0;}
+
+    .change .bar3 {
+        -webkit-transform: rotate(45deg) translate(-8px, -8px);
+        transform: rotate(45deg) translate(-8px, -8px);
+    }
+    
     .mobileMenuButtonAnimation {
     -ms-transform: rotate(180deg); /* IE 9 */
     -webkit-transform: rotate(180deg); /* Safari */
@@ -163,9 +172,9 @@ body {
     }
     #mobileNav {
         left: 11.5% !important;
-        margin: 9.1vh -11vw 0 0;
+        margin: 9.1vh -5vw 0 0;
         background: rgba(0,0,0, 0.8);
-        padding: 0;
+        padding: 0 3vw;
         float: right;
         z-index: 9999;
         top:15% !important;
@@ -173,6 +182,7 @@ body {
     #mobileNav ul {
         text-align: left;
         margin 0;
+        display: inline;
         padding: 0 20px;
         list-style: none;
     }
@@ -224,7 +234,8 @@ body {
 
 /* HOME SECTION */
 #Home{
-    background: transparent;
+    display: block;
+    background-image: url("watchTower.jpg");
     background-position: center;
     background-repeat: no-repeat;
     -webkit-background-size: cover;
@@ -239,7 +250,7 @@ body {
 	display: table;
 	z-index: 2;
 	color: #fff;
-	font : normal 300 7vmax 'Josefin Sans', sans-serif;
+	font : normal 300 7vmin 'Josefin Sans', sans-serif;
 	text-align: center;
 	white-space: nowrap;
     margin: 0 auto;
@@ -443,34 +454,27 @@ body {
     padding-top: 12vh;
     display: block; 
     position: relative;
-    height:100%;
+    height: 100%;
     color : white;
-    z-index: -1;
-    background: transparent;
-    z-index: 999;
 }
+
 #aboutContent { 
+    display: flex;
+    margin: 0 5%;
+
+}
+
+#aboutLeft {
     margin: auto;
-
-}
-.backgroundBlurEffect {
-    height:100vh;
-    width: 100vw;
-    position: fixed;
-    background:url("bridge.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    opacity: 0;
-    -webkit-filter: blur(20px) brightness(0.8);
-    -ms-filter: blur(20px) brightness(0.8);
-    -o-filter: blur(20px) brightness(0.8);
-    filter: blur(20px) brightness(0.8);
-    z-index: -1;
+    
 }
 
+#aboutRight { 
+    margin: auto;
+   
+}
+
+/* Photo Card */
 .browserPhotoCardContainer, .mobilePhotoCardContainer {
     display: block;
     margin-right: 1.5vmin;
@@ -484,7 +488,6 @@ body {
     width: 20vmax;
     border-radius: 100%;
 }
-
 
 .flipAnimation {
     position: relative;
@@ -533,65 +536,6 @@ body {
     text-align: center;
     z-index: 1000;
 }
-#aboutScreen { 
-    border-radius: 2% 2% 1.5% 1.5%;
-    background: rgba(225, 225, 255, 0.7);
-    color: black;
-    height: 80vh; 
-    width: 64vw;
-    margin-left: 1.5vmin;
-    
-    overflow-y: auto;
-}
-#aboutCode {
-    position: relative;
-    margin: 9vh 3vw 0 3vw;
-    color: #222;
-    font: 2.3vmin 'Montserrat', sans-serif;
-}
-.aboutAnswer {
-    color: #666;
-    font: 2vmin 'Montserrat', sans-serif;
-}
-.aboutAnswer a { 
- color: #39BCFF;
-}
-.aboutMeWindowExitButton {
-    position: relative;
-    margin-top: -12px;
-    color: transparent;
-    cursor: pointer;
-    z-index: 99999;
-}
-#aboutScreenHeader {
-    border-radius: 10px 10px 2% 2%;
-    background: rgb(84, 84, 84);
-    color: white;
-    position: absolute;
-    display: block;
-    height: 3.3vh;
-    width: 64vw;
-    margin-left: 1.5vmin;
-    z-index: 90 !important;
-}
-#aboutScreenHeader h3 {
-    position: absolute;
-    font: normal lighter 2vmin arial, sans-serif;
-    margin-top: 0.1vh !important;
-    padding: 0 30% 0 40%;
-    z-index: 90 !important;
-}
-.circle { 
-    float: left;
-    list-style: none;
-    border-radius: 100%;
-    background: blue;
-    height: 2vmin;
-    margin: 0.5%;
-    width: 2vmin;
-    z-index: 90 !important;
-}
-
 
 #clock {
     opacity: 1; 
@@ -604,18 +548,70 @@ body {
     margin-top: 2vmin;
     
 }
-#infowindow {
-    color:aliceblue;
-    background-color: rgba(0,0,0,0.7);
-    
+
+/* Window */
+.window {
+    background: #485667;
+    border-radius: 2% 2% 1.5% 1.5%;
 }
 
-.gm-style-iw {
-   width: 350px !important;
-   top: 0 !important;
-   left: 0 !important;
-   border-radius: 2px 2px 0 0;
+.windowHeader {
+    background: #d7d9e0;
+    border-radius: 10px 10px 2% 2%;
+    color: black;
+    min-height: 26px;
+    width: 100%;
 }
+
+.windowBtns {
+    margin-left: 5px;
+    position: absolute;
+    width: 20%;
+}
+
+.windowRd {
+    background: #FC605B;
+}
+
+.windowYl {
+    background: #FDBC40;
+}
+
+.windowGn {
+    background: #34C849;
+}
+
+.circle { 
+    border-radius: 100%;
+    float:left;
+    margin: 6px 3px;
+    min-height: 13px;
+    width: 13px;
+}
+
+.windowTitle {
+    text-align: center;
+    width: 100%;
+}
+
+.windowContent {
+    color: whitesmoke;
+    overflow-y: scroll;
+    padding: 2.5% 5%;
+}
+
+.windowContent code a:link{
+    color: #3379b7;
+}
+
+.windowContent code a:hover{
+    color: #49BCFF;
+}
+
+.windowContent code a:visited{
+    color: #3379b7;
+}
+
 
 @keyframes fadein {
     from {
@@ -657,14 +653,63 @@ body {
         opacity: 1;
     }
 }
+
+
+@media screen and (max-width: 1100px) and (min-width:850px) {
+    #map { 
+    height: 27vmax;
+    width: 27vmax;
+    margin-bottom: 4vmin;
+    }
+    
+     .frontOfPhotoCard {
+        transform: rotateY(0deg);
+        height: 27vmax;
+        width: 27vmax;
+        z-index: 200;
+    }
+    
+    .browserPhotoCardContainer, .mobilePhotoCardContainer, .frontOfPhotoCard, .backOfPhotoCard {
+        height: 27vmax;
+        width: 27vmax;
+        border-radius: 100%;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    #aboutContent { 
+        flex-direction: column;
+    }
+    
+    #map { 
+    height: 50vmax;
+    width: 50vmax;
+    margin-bottom: 4vmin;
+    }
+    
+     .frontOfPhotoCard {
+        transform: rotateY(0deg);
+        height: 50vmax;
+        width: 50vmax;
+        z-index: 200;
+    }
+    
+    .browserPhotoCardContainer, .mobilePhotoCardContainer, .frontOfPhotoCard, .backOfPhotoCard {
+        height: 50vmax;
+        width: 50vmax;
+        border-radius: 100%;
+    }
+}
+
+
 /********** PORTFOLIO **********/
 #Portfolio { 
     display: block;
     position: relative;
-    padding: 12vh 0 0 0;
+    padding: 12vh 0 12vh 0;
     height: 100%; 
     margin: 0;
-    width: 100vw;  
+    width: 100%;  
 }
 #portfolioTitle { 
     color: aliceblue;
@@ -698,7 +743,7 @@ body {
     padding: 0;
 }
 
-#portfolioMenu ul {
+#portfolioMenu  {
     list-style-type: none;
 }
 #portfolioMenu ul li { 
@@ -708,7 +753,7 @@ body {
 
 #portfolioMenu ul li+li:before {
     padding: 8px;
-    color: white;
+    color: black;
     content: "/\00a0";
 }
 #portfolioMenu ul li button {
@@ -725,39 +770,38 @@ body {
     margin: 15px;
 }
 
-#protfolioList li { 
-    display: block; 
-    float: left !important; 
-    position: relative; 
-    text-decoration: none;
-    
-}
 #portfolioList { 
-    display: block;
-    height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
     margin:2vh auto 0 auto;
     position: relative;
     width: 95vw;
     list-style-type: none;
     overflow-y: scroll;
 }
+
 .portfolioItem { 
+    border-radius: 5px;
     display: block;
     position: relative;
     float: left;
-    margin: 1vh;
-    height: 30vmin;
-    width: 30vmin;
+    margin: 10px;
+    height: 300px;
+    width: 300px;
 }
 
 .portfolioItem img { 
-    display: block;
-    height: 30vmin; 
+    border-radius: 5px;
+    display: block; 
     margin: auto;
     position: relative;
-    width: 30vmin;
+    height: 300px;
+    width: 300px;
 }
 .portfolioItemInfo {
+    border-radius: 5px;
     box-sizing: content-box;
     position: absolute;
     bottom: 0;
@@ -765,7 +809,7 @@ body {
     right: 0;
     background: #008CBA !important;
     overflow: hidden !important;
-    opacity: 0.8;
+    opacity: 0.95;
     width: 100%;
     height: 18%;
     transition: all 0.3s ease;
@@ -777,14 +821,14 @@ body {
 }
 .portfolioItem h3 { 
     color: aliceblue;
-    font: normal 2vmin Montserrat, sans-serif !important;
+    font: normal 1.4em Montserrat, sans-serif !important;
     margin: 5% auto;
     letter-spacing: 0.2vmin;
     text-align: center;
 }
 .portfolioItem p {
     color: aliceblue;
-    font: normal 1.3vmin Montserrat, sans-serif !important;
+    font: normal 1em Montserrat, sans-serif !important;
     display: block;
     position: relative;
     letter-spacing: 0.2vmin;
@@ -804,7 +848,7 @@ body {
     position: absolute;
     display: table;
     float: right;
-    margin: 0 0 2vmin 15.5vmin;
+    margin: 0 0 2vmin 60%;
     bottom: 0px !important;
 }
 .portfolioLinks li {
@@ -821,22 +865,120 @@ body {
 }
 /********** CONTACT *********/
 #Contact { 
-    display: block; 
+    display: block;
+    background: #222a36;
     position: relative; 
-    padding-top: 10vh;
-    height: 100% !important; 
-    width: 100vw;
+    padding: 12vh 8vw 1vw 8vw;
 }
 #contactTitle { 
     color: aliceblue;
     -webkit-text-stroke: 1px #49BCFF;
     text-stroke: 1px #49BCFF;
-    font: 8vmin 'Montserrat', sans-serif;
+    font: 3em 'Montserrat', sans-serif;
     margin: 0 auto 3vmin auto;
     text-align: center;
     width 40vw; 
     padding:0;
 }
+
+#contentWrapper {
+    display: flex;
+}
+
+#contactForm {
+    display: inline;
+    margin: 0;
+    width: 100%;
+}
+
+/***** FORMS ******/
+form{
+    display: block;
+    margin: 10vh auto;
+    align-self: center;
+    width: 100%;
+}
+
+lable {
+    color: #174a79;
+    margin: 0 3vw -20px 3vw;
+}
+
+input {
+    color: white !important;
+    background: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid aliceblue;
+    margin: 1vh 0vw;
+    transition: 0.15s ease-in;
+    width: 50%;
+}
+
+form:nth-child(5) {
+    margin-top: 10vh !important;
+}
+
+input:focus {
+    outline: none;
+    border-color: #49BCFF !important;
+    border-bottom-width: 2px;
+}
+
+input:focus + lable {
+    color: #49BCFF !important;
+}
+
+textArea {
+    color: white;
+    background: transparent;
+    border-bottom: 2px solid aliceblue;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    height: 40px;
+    margin: 1vh 0vw 5vh 0vw;
+    width: 100%;
+    transition: 0.15s ease-in
+}
+
+textArea:focus {
+    outline: none;
+    border-color: #49BCFF !important; 
+}
+
+input[type=submit] {
+    background-color: #26466D;
+    border: 1px solid #262626;
+    border-radius: 4px !important;
+    color: aliceblue !important;
+    cursor: pointer;
+    margin: 0;
+    height: 29px;
+    transition: 0.4s ease-in;
+    width: 90px;
+}
+
+#submitBtn:hover {
+    background-color: #49BCFF;
+    border-color: #3379b7;
+}
+
+#contactMessage {
+    display: ;
+    text-align: center;
+    margin: auto;
+    width: 100%;
+    
+}
+
+#contactMessage p {
+    color: aliceblue;
+
+}
+
+
 #socialMediaContact {
     margin: 0 auto;
     display: table;
@@ -854,6 +996,9 @@ body {
 #socialMediaContact ul li {
     float:left;
     padding: 0 1.5vmin;
+}
+#socialMediaContact ul li a {
+    border: none;
 }
 #socialMediaContact img {
     opacity: 0.85;
@@ -882,80 +1027,53 @@ body {
     width: 8.0vmin !important;
     }
 }
-#contactContent {
-    display: table;
-    position: relative;
-    width: 100vw;
-    margin: 5vh 0;
-}
-#contactContent tr {
-    display: block;
-    position: relative;
-    width: 100vw;
-    height:100%;
-    
-}
-#connectionSection{
-    width: 50vw !important ;
-    
-}
-#connectionSection p {
-    display: table;
-    position: relative;
-   margin:0 auto;
-    
-}
-#contactForm {
-    width: 50vw !important ;
-    
-}
-form ul {
-    list-style-type: none;
-}
-form ul li label {
-    color: aliceblue;
-    font: 15px 'Montserrat', sans-serif;
-}
-form ul li input{
-    background: transparent;
-    border: 2px solid white;
-    color: rgb(0, 183, 255);
-    height: 2vh;
-    width: 40vw;
-}
-form ul li input:focus {
-    border-color: rgb(0, 183, 255);
-}
-form ul li textarea {
-    background: transparent;
-    color: rgb(0, 183, 255);
-    width: 40vw;
-    
-    height: 20vmin;
-    border: 2px solid white;
-}
-form ul li textarea:focus {
-    border-color: rgb(0, 183, 255);
-}
-#submitButton {
-    height: 25px;
-    width: 60px;
-    margin: 0 auto;
-    cursor: pointer;
-}
-#submitButton:hover {
-    background-color:aliceblue; 
-    transition: 0.5s;
-}
-#contactMessage { 
-    color: aliceblue;
-}
 /********** FOOTER **********/
-footer {
-    font: 16px 'Alegreya Sans SC', sans-serif;
+#footer {
+    display: block;
+    font-size: 15px;
+    padding: 6px;
+    text-align: center;
+    background: #161d28;
     color: azure;
     position: relative;
-    display: block;
     margin: 0 auto;
-    width: 206px;
+}
+
+
+@media screen and (max-width: 600px) and (min-width: 0px) {
+    #aboutCode {
+    font-size: 1.1em;
+    }
+    .aboutAnswer {
+    font-size: 0.9em;
+    }
+
+}
+
+/********** OTHER *********/
+a {
+    color: #3379b7;
+    text-decoration: none;
+    -webkit-transition: 0.175s ease-in-out;
+    transition: 0.175s ease-in-out;
+}
+
+a:hover{
+		border-bottom: 2px solid #3379b7;
+}
+
+a:active {
+    display: inline-block;
+    animation-name: bounce;
+    transform-origin: center bottom;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+}
+
+.shadow {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.shadow:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5);
 }
