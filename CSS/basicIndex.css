@@ -887,7 +887,7 @@ body {
     display: block;
     background: #222a36;
     position: relative; 
-    padding: 12vh 8vw 1vw 8vw;
+    padding: 12vh 4vw 1vw 4vw;
 }
 #contactTitle { 
     color: aliceblue;
@@ -905,9 +905,11 @@ body {
 }
 
 #contactForm {
+   
     display: inline;
+    float: left;
     margin: 0;
-    width: 100%;
+    width: 50%;
 }
 
 /***** FORMS ******/
@@ -915,7 +917,7 @@ form{
     display: block;
     margin: 10vh auto;
     align-self: center;
-    width: 100%;
+    width: 60%;
 }
 
 lable {
@@ -985,16 +987,15 @@ input[type=submit] {
 }
 
 #contactMessage {
-    display: ;
+    display: block;
+    float: right;
     text-align: center;
     margin: auto;
-    width: 100%;
-    
+    width: 50%;
 }
 
 #contactMessage p {
     color: aliceblue;
-
 }
 
 
@@ -1042,8 +1043,19 @@ input[type=submit] {
 }
 @media screen and (max-width: 800px) and (min-width: 0px) {
     #socialMediaContact img {
-    height: 8.0vmin !important;
-    width: 8.0vmin !important;
+    height: 7.0vmin !important;
+    width: 7.0vmin !important;
+    }
+    
+    #contentWrapper {
+        flex-direction: column;
+    }
+    #contactForm {
+    margin: auto;
+    width: 100%;
+    }
+    form {
+        width: 100%;
     }
 }
 /********** FOOTER **********/
