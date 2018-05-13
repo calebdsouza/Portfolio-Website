@@ -126,7 +126,22 @@ body {
     border: none;
     cursor: pointer;
     display: none;
+<<<<<<< HEAD
     vertical-align: middle;
+=======
+    background: url("menuButtonWhite.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -webkit-transition: -webkit-transform 0.5s; /* Safari */
+    transition: transform 0.5s;
+    height: 6vh;
+    width: 6vh;
+	margin: 3vh 3vw;
+    z-index: 9999;
+>>>>>>> a4b2068cfb189d294839890e360c2f4e7832f7a8
 }
 
 /* Mobile Nav Menu*/
@@ -569,6 +584,10 @@ body {
     width: 20%;
 }
 
+.aboutAnswer a { 
+ color: #0F2F5B;
+}
+
 .windowRd {
     background: #FC605B;
 }
@@ -855,8 +874,8 @@ body {
     float:left;
 }
 .portfolioLinks a img {
-    height: 2vmin;
-    width: 2vmin;
+    height: 25px;
+    width: 25px;
 }
 @media screen and (max-width: 800px) and (min-width: 0px) {
     .portfolioItemInfo h3 { 
@@ -1047,7 +1066,48 @@ input[type=submit] {
     .aboutAnswer {
     font-size: 0.9em;
     }
-
+    
+}
+#connectionSection{
+    width: 50vw !important ;
+    
+}
+#connectionSection p {
+    display: table;
+    position: relative;
+   margin:0 auto;
+    
+}
+#contactForm {
+    width: 50vw !important ;
+    
+}
+form ul {
+    list-style-type: none;
+}
+form ul li label {
+    color: aliceblue;
+    font: 15px 'Montserrat', sans-serif;
+}
+form ul li input{
+    background: transparent;
+    border: 2px solid white;
+    color: rgb(0, 183, 255);
+    font: 15px 'Montserrat', sans-serif;
+    height: 2vh;
+    width: 40vw;
+}
+form ul li input:focus {
+    border-color: rgb(0, 183, 255);
+}
+form ul li textarea {
+    background: transparent;
+    color: rgb(0, 183, 255);
+    font: 15px 'Montserrat', sans-serif;
+    width: 40vw;
+    
+    height: 20vmin;
+    border: 2px solid white;
 }
 
 /********** OTHER *********/
